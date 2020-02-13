@@ -137,6 +137,14 @@ app.get("/yosemite_info", (req, res) => {
 	res.render("yosemite_info");
 });
 
+app.get("/DeathValley_info", (req, res) => {
+	res.render("DeathValley_info");
+});
+
+app.get("/Craterlake_info", (req, res) => {
+	res.render("Craterlake_info");
+});
+
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(req, res){
