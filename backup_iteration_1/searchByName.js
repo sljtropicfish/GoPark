@@ -1,9 +1,9 @@
 function showLink(name) {
-	var links = {"Park1 Name":"park1.html",
-		       "Park2 Name":"park2.html"
+	var links = {"Yellowstone":"yellowstone_info.html",
+		       "Yosemite":"yosemite_info.html"
 		      };
 	if (links.hasOwnProperty(name)) {
-		document.getElementById("link").innerHTML = '<a href="' + links[name] + '">' + name + "</a>";
+		document.getElementById("link").innerHTML = 'Park Info Page: <a href="' + links[name] + '">' + name + "</a>";
  	} else {
     	document.getElementById("link").innerHTML = '';
     }
@@ -15,7 +15,7 @@ function showResult(response){
 	document.getElementById('description').textContent = "Description: " + response.data[0].description;
 	document.getElementById('weatherInfo').textContent = "Weather: " + response.data[0].weatherInfo;
 	document.getElementById('url').textContent = "Official website: " + response.data[0].url;
-	showLink(response.data[0].fullName);
+	showLink(response.data[0].name);
 }
 function bindButtons(){
 	document.getElementById('parkSubmit').addEventListener('click', function(event){
@@ -43,6 +43,7 @@ function bindButtons(){
 		document.getElementById('description').textContent = "";
 		document.getElementById('weatherInfo').textContent = "";
 		document.getElementById('url').textContent = "";
+		alert("Input is not valid!");
 		
 	  }else{
 		  document.getElementById('notFound').textContent = "";
