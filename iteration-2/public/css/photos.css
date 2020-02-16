@@ -158,7 +158,7 @@ footer{
 	background: #E3E3E3;
 }
 
-footer .copyright{
+footer .footer-copyright{
     width: 333px;
     height: auto;
     margin-right: 50px;
@@ -166,7 +166,7 @@ footer .copyright{
 }
 
 
-footer .copyright p{
+footer .footer-copyright p{
     color: #8d8b8b;
     font-family: "raleway-regular", arial;
     font-size: 20px;
@@ -174,7 +174,7 @@ footer .copyright p{
     margin-bottom: 15px;
 }
 
-footer .copyright p a{
+footer .footer-copyright p a{
     text-decoration: none;
     font-family: "raleway-bold", arial;
     font-weight: bold;

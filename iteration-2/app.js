@@ -2,13 +2,13 @@ const 	express         = require('express'),
       	exphbs          = require('express-handlebars'),
       	bodyParser      = require('body-parser'),
 		mongoose 		= require("mongoose"),
-		Park	 		= require("./models/park"),
+		// Park	 		= require("./models/park"),
 		// Comment 		= require("./models/comment"),
 		User 			= require("./models/user"),
+		// seedDB 		= require("./seeds"),
 		passport		= require("passport"),
-		LocalStrategy 	= require("passport-local"),
-		seedDB 		= require("./seeds");
-
+		LocalStrategy 	= require("passport-local");
+		
 const app = express();
 
 // seed DB
@@ -51,7 +51,7 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-    res.render('main');
+    res.render('home');
 });
 
 //=================
@@ -64,7 +64,7 @@ app.get("/register", function(req, res){
 
 // handle sign up logic
 app.post("/register", function(req, res){
-	var newUser = new User({username: req.body.username});
+	var newUser = new User({username: req.body.username, email: req.body.email, subscription: {news: false, events: false}});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
 			console.log(err);
@@ -73,6 +73,7 @@ app.post("/register", function(req, res){
             	messageClass: 'alert-danger'
        	 	});
 		}
+		// console.log(user);
 		passport.authenticate("local")(req, res, function(){
 			res.redirect("/protected");
 		});
@@ -112,13 +113,62 @@ function isLoggedIn(req, res, next){
 
 app.get('/protected', (req, res) => {
     if (req.user) {
-        res.render('protected');
+		console.log(req.user);
+		var context = {};
+		context.user = {
+						id: req.user._id,
+						username: req.user.username,
+						subscription: {
+							news: req.user.subscription.news,
+							events: req.user.subscription.events
+						}
+					};
+		console.log(context);
+        res.render('protected', context);
     } else {
         res.render('login', {
             message: 'Please login to continue',
             messageClass: 'alert-danger'
         });
     }
+});
+
+app.post("/newsSubscription", (req, res) => {
+	User.findById(req.user.id, function(err, user){
+		if (!user) {
+			console.log("User not found! Redirecting....");
+			return res.redirect("/login");
+		} else {
+			user.subscription.news = req.body.subscription.news;
+			user.save(function(err){
+				if (err){
+					console.log("Fail to save! Redirecting....");
+					return res.redirect("/login");
+				} else {
+					res.redirect("/protected");
+				}
+			});
+		}
+	});
+});
+
+app.post("/eventsSubscription", (req, res) => {
+	User.findById(req.user.id, function(err, user){
+		if (!user) {
+			console.log("User not found! Redirecting....");
+			return res.redirect("/login");
+		} else {
+			user.subscription.events = req.body.subscription.events;
+			user.save(function(err){
+				if (err){
+					console.log("Fail to save! Redirecting....");
+					return res.redirect("/login");
+				} else {
+					res.redirect("/protected");
+				}
+			});
+		}
+	});
 });
 
 app.get("/search", (req, res) => {
@@ -137,14 +187,13 @@ app.get("/yosemite_info", (req, res) => {
 	res.render("yosemite_info");
 });
 
-app.get("/DeathValley_info", (req, res) => {
-	res.render("DeathValley_info");
+app.get("/craterlake_info", (req, res) => {
+	res.render("craterlake_info");
 });
 
-app.get("/Craterlake_info", (req, res) => {
-	res.render("Craterlake_info");
+app.get("/deathValley_info", (req, res) => {
+	res.render("deathValley_info");
 });
-
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(req, res){

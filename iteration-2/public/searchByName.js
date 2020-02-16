@@ -1,6 +1,6 @@
 function showLink(name) {
-	var links = {"Yellowstone":"yellowstone_info.html",
-		       "Yosemite":"yosemite_info.html","Death Valley":"DeathValley_info.html","Crater Lake":"CraterLake_info.html"
+	var links = {"Yellowstone":"yellowstone_info",
+		       "Yosemite":"yosemite_info","Death Valley":"DeathValley_info","Crater Lake":"CraterLake_info"
 		      };
 	if (links.hasOwnProperty(name)) {
 		document.getElementById("link").innerHTML = 'Park Info Page: <a href="' + links[name] + '">' + name + "</a>";
