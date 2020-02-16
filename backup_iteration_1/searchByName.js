@@ -1,6 +1,6 @@
 function showLink(name) {
 	var links = {"Yellowstone":"yellowstone_info.html",
-		       "Yosemite":"yosemite_info.html"
+		       "Yosemite":"yosemite_info.html","Death Valley":"DeathValley_info.html","Crater Lake":"CraterLake_info.html"
 		      };
 	if (links.hasOwnProperty(name)) {
 		document.getElementById("link").innerHTML = 'Park Info Page: <a href="' + links[name] + '">' + name + "</a>";
@@ -36,6 +36,10 @@ function bindButtons(){
 			parkCode ="grte";
 	  if(parkname == "rocky mountain national park" ||parkname == "rocky mountain")
 			parkCode ="romo";
+	  if(parkname == "death valley national park" ||parkname == "death valley")
+			parkCode ="deva";
+	  if(parkname == "crater lake national park" ||parkname == "crater lake")
+			parkCode ="crla";
   
 	  if (parkCode == "x"){
 		document.getElementById('notFound').textContent = "No results found."; 
