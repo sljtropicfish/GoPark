@@ -7,7 +7,19 @@
 			<img
 			  src="https://www.nationalgeographic.com/content/dam/travel/2019-digital/yellowstone-roadtrip/mosaic-yellowstone-wyoming.adapt.1900.1.jpg"
 			  alt="https://www.nationalgeographic.com" style="width:500px;height:350px;" />
-		  </div>
+		 </div>
+
+			<div id="weatherInfo">
+				<weather zip="82190">
+					<h5>Current Weather</h5>
+					<ul>
+					<li>Park: <span id = "parkName"></span></li>
+					<li><span id = "weather"></span></li>
+					<li>Temperature: <span id = "temperature"></span></li>
+					<li>Humidity: <span id = "humidity"></span></li>
+					</ul>
+				</weather>
+			</div>
 
 		  <div id="bodyContent">
 			<p>Yellowstone National Park is an American national park located mostly in Wyoming, with small sections in Montana
@@ -59,3 +71,5 @@
 		  </div>
 	</div>
 </div>
+
+<script src="/public/parkinfo.js"></script>

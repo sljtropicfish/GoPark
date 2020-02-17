@@ -4,9 +4,21 @@
 			Crater Lake National Park
 		  </h1>
 
-		  <img 
-			src="/public/img/information/CraterLake.jpg" alt="" 
+		  <img
+			src="/public/img/information/CraterLake.jpg" alt=""
 			style="width:500px;height:350px;" />
+		</div>
+
+		<div id="weatherInfo">
+			<weather zip="97604">
+				<h5>Current Weather</h5>
+				<ul>
+				<li>Park: <span id = "parkName"></span></li>
+				<li><span id = "weather"></span></li>
+				<li>Temperature: <span id = "temperature"></span></li>
+				<li>Humidity: <span id = "humidity"></span></li>
+				</ul>
+			</weather>
 		</div>
 
 		<div id="bodyContent">
@@ -60,3 +72,5 @@
 		</div>
 	</div>
 </div>
+
+<script src="/public/parkinfo.js"></script>

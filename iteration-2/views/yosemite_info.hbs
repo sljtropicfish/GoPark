@@ -1,24 +1,27 @@
 <div class="row justify-content-md-center" style="margin-top: 100px">
 	<div class="container">
 		<div style="text-align:center">
-		<h1>
-		  Yosemite National Park
-		</h1>
+			<h1>
+			  Yosemite National Park
+			</h1>
 
-		<img
-		  src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Yosemite.JPG" alt="https://upload.wikimedia.org"
-		  style="width:500px;height:350px;"/>
+			<img
+			  src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Yosemite.JPG" alt="https://upload.wikimedia.org"
+			  style="width:500px;height:350px;"/>
 	  </div>
 
-		<div id="weather">
-			<h3>Current Weather</h3>
-			<ul>
-			<li>City: <span id = "cityResult"></span></li>
-			<li>weather: <span id = "weather"></span></li>
-			<li>Temperature: <span id = "temperature"></span></li>
-			<li>Humidity: <span id = "humidity"></span></li>
-			</ul>
+		<div id="weatherInfo">
+			<weather zip="95389">
+				<h5>Current Weather</h5>
+				<ul>
+				<li>Park: <span id = "parkName"></span></li>
+				<li><span id = "weather"></span></li>
+				<li>Temperature: <span id = "temperature"></span></li>
+				<li>Humidity: <span id = "humidity"></span></li>
+				</ul>
+			</weather>
 		</div>
+
 		<br>
 
 	  <div id="bodyContent">
@@ -72,3 +75,4 @@
 
 	</div>
 </div>
+<script src="/public/parkinfo.js"></script>

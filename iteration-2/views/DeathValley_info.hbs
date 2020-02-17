@@ -1,12 +1,23 @@
 <div class="row justify-content-md-center" style="margin-top: 100px">
 	<div class="container">
-	
+
 		<div style="text-align:center">
 		  <h1>
 			Death Valley National Park
 		  </h1>
+			<img src="/public/img/information/DeathValley.jpg" alt="" style="width:500px;height:350px;" />
+		</div>
 
-		<img src="/public/img/information/DeathValley.jpg" alt="" style="width:500px;height:350px;" />
+		<div id="weatherInfo">
+			<weather zip="92328">
+				<h5>Current Weather</h5>
+				<ul>
+				<li>Park: <span id = "parkName"></span></li>
+				<li><span id = "weather"></span></li>
+				<li>Temperature: <span id = "temperature"></span></li>
+				<li>Humidity: <span id = "humidity"></span></li>
+				</ul>
+			</weather>
 		</div>
 
 		<div id="bodyContent">
@@ -52,3 +63,5 @@
 		</div>
 	</div>
 </div>
+
+<script src="/public/parkinfo.js"></script>
