@@ -117,6 +117,11 @@ img {
     margin: 2.5% 0 0 2.5%;
 }
 
+.thumbnail {
+    margin: auto;
+}
+
+
 
 /*  footer  */
 footer{
