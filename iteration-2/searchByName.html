@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="searchByName.js"></script>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Search by name</legend>
+        <label for="parkName"></label>
+        <input type="text" name="parkName" id="parkName">
+        <input type="submit" value="Search" id="parkSubmit">
+      </fieldset>
+	  <fieldset>
+        <legend>Search by location(State Code)</legend>
+        <label for="parkLocation"></label>
+        <input type="text" name="parkLocation" id="parkLocation">
+        <input type="submit" value="Search" id="parkSubmit2">
+      </fieldset>
+    </form>
+	<div>
+		<p id="lists">Result<p>
+		<span id="notFound"></span>
+		<span></span><span id="fullName"></span><br><br>
+		<span></span><span id="description"></span><br><br>
+		<span></span><span id="weatherInfo"></span><br><br>
+		<span></span><span id="url"></span><br><br>
+		<span id="link"></span>
+    </div>
+  </body>
+</html>
